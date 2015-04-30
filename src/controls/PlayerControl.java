@@ -30,5 +30,6 @@ public class PlayerControl{
 		if(i.isKeyDown(Input.KEY_SPACE)){
 			player.moveUp(delta);
 		}
+		
 	}
 }

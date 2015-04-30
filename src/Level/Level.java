@@ -34,7 +34,7 @@ public class Level {
 	       }
 	    
 	 
-	    public void addEnemy(Element e){
+	    public void addElement(Element e){
 	    	elements.add(e);
 	    }
 	  

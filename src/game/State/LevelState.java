@@ -2,7 +2,9 @@ package game.State;
 import game.SimpleSlickGame;
 import Level.Level;
 import game.elements.Enemy;
-
+import game.elements.*;
+import controls.PlayerControl;
+import game.elements.Player;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SpriteSheet;
 import org.newdawn.slick.Animation;
@@ -18,6 +20,8 @@ public class LevelState extends BasicGameState {
 	Level level;
 	String firstLevel;
 	public Image background;
+	private Player player;
+	private PlayerControl playerControl;
 	public LevelState ( String firstLevel){
 		this.firstLevel = firstLevel;
 			}
@@ -25,12 +29,30 @@ public class LevelState extends BasicGameState {
 	public void init(GameContainer container, StateBasedGame sbg)throws SlickException{
 		
 		level = new Level (firstLevel);
+
+		
+		player = new Player(170,250);
+		level.addElement(player);
+		
+		//link to PlayerControl class
+		playerControl = new PlayerControl(player);
+		//declaring gravity value
+		player.setYVelocity(0.4f);
+		
+		
+
 		enemy = new Enemy(280,274);
-		level.addEnemy(enemy);
+		level.addElement(enemy);
 	}
 
 	public void update (GameContainer container,  StateBasedGame  sbg, int delta) throws SlickException{
-		
+
+		//player movement is registered every frame
+		playerControl.handleInput(container.getInput(), delta);
+		//player gravity
+		player.applyGravity(0.2f);
+		player.moveDown(delta);
+
 	}
 	public void render (GameContainer container, StateBasedGame sbg, Graphics g) throws SlickException{
 		g.scale(SimpleSlickGame.SCALE, SimpleSlickGame.SCALE);

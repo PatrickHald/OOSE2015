@@ -9,7 +9,7 @@ public abstract class Element  {
 	 
 	    protected float    x_velocity = 0;
 	    protected float    y_velocity = 0;
-	    protected float    maximumFallSpeed = 1;
+	    protected float    maximumFallSpeed = 5;
 	 
 	    protected boolean  onGround = true;
 	    protected float x;
@@ -29,7 +29,7 @@ public abstract class Element  {
  
     public void applyGravity(float gravity){
       //if we aren't already moving at maximum speed
-        if(y_velocity < maximumFallSpeed){
+    	if(y_velocity < maximumFallSpeed){
             //accelerate
             y_velocity += gravity;
             if(y_velocity > maximumFallSpeed){
@@ -37,20 +37,18 @@ public abstract class Element  {
                 y_velocity = maximumFallSpeed;
             }
         }
+        
     }
  
     public float getYVelocity() {
         return y_velocity;
     }
- 
     public void setYVelocity(float f){
         y_velocity = f;
     }
- 
     public float getXVelocity(){
         return x_velocity;
     }
- 
     public void setXVelocity(float f){
         x_velocity = f;
     }
@@ -77,7 +75,10 @@ public abstract class Element  {
     	x = x + (0.15f*delta);
     }
     public void moveUp(int delta){
-        y = y - (0.15f*delta);
+        y = y - (0.60f*delta);
+    }
+    public void moveDown(int delta){
+        y = y + (0.15f*delta);
     }
 //	public void moveRight(){
 //		x++;
