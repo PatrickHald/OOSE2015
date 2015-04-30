@@ -2,15 +2,20 @@ package Level;
 
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.tiled.TiledMap;
+import org.newdawn.slick.Image;
+
 
 import Level.Tile.AirTile;
 import Level.Tile.SolidTile;
 import Level.Tile.Tile;
 import game.elements.*;
+
+//import java.awt.Image;
 import java.util.ArrayList;
 
 public class Level {
 	   private TiledMap map;
+	
 	   
 	    //a list of all characters present somewhere on this map
 	    //private ArrayList<Character> characters;
@@ -23,8 +28,11 @@ public class Level {
 	       // characters = new ArrayList<Character>();
 	        enemies = new ArrayList<Element>();
 	        loadTileMap();
-	    }
-
+	       }
+	    
+	    //for the sky
+	   // public Image background = new Image("data/levels" + map.getMapProperty("background","Oose_Mario_game_sky"));
+	  
 	    public void addEnemy(Element e){
 	    	enemies.add(e);
 	    }
