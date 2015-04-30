@@ -32,7 +32,11 @@ public class LevelState extends BasicGameState {
 		player = new Player(170,250);
 		level.addElement(player);
 		
+		//link to PlayerControl class
 		playerControl = new PlayerControl(player);
+		//declaring gravity value
+		player.setYVelocity(0.4f);
+		
 		
 		enemy = new Enemy(280,274);
 		level.addElement(enemy);
@@ -41,6 +45,9 @@ public class LevelState extends BasicGameState {
 	public void update (GameContainer container,  StateBasedGame  sbg, int delta) throws SlickException{
 		//player movement is registered every frame
 		playerControl.handleInput(container.getInput(), delta);
+		//player gravity
+		player.applyGravity(0.2f);
+		player.moveDown(delta);
 	}
 	public void render (GameContainer container, StateBasedGame sbg, Graphics g) throws SlickException{
 		g.scale(SimpleSlickGame.SCALE, SimpleSlickGame.SCALE);
