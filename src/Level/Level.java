@@ -3,30 +3,31 @@ package Level;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.tiled.TiledMap;
 
+
+
 import Level.Tile.AirTile;
 import Level.Tile.SolidTile;
 import Level.Tile.Tile;
-import game.elements.*;
+
+import game.elements.Element;
 import java.util.ArrayList;
 
 public class Level {
 	   private TiledMap map;
 	   
-	    //a list of all characters present somewhere on this map
-	    //private ArrayList<Character> characters;
-	   private ArrayList<Element> enemies;
-	   
+	   //a list of all characters present somewhere on this map
+	   private ArrayList<Element> elements;
 	   
 	    private Tile[][] tiles;
 	    public Level(String level) throws SlickException{
 	        map = new TiledMap("data/levels/" + level + ".tmx",true);
 	       // characters = new ArrayList<Character>();
-	        enemies = new ArrayList<Element>();
+	        elements = new ArrayList<Element>();
 	        loadTileMap();
 	    }
-
-	    public void addEnemy(Element e){
-	    	enemies.add(e);
+	    
+	    public void addElement(Element e){
+	    	elements.add(e);
 	    }
 	  
 	    private void loadTileMap(){
@@ -68,8 +69,10 @@ public class Level {
 	    }
    
 	    public void render(){
-	        map.render(0, 0, 0, 0, 32, 18);
-	       for(Element e: enemies){
+	    	//chronological rendering of map, elements, etc.
+	    	map.render(0, 0, 0, 0, 32, 18);
+	    	
+	        for(Element e: elements){
 	        	e.render();
 	        }
 	    }

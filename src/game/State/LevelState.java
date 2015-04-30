@@ -1,7 +1,9 @@
 package game.State;
 import game.SimpleSlickGame;
 import Level.Level;
+import game.elements.Player;
 import game.elements.Enemy;
+import controls.PlayerControl;
 
 import org.newdawn.slick.SpriteSheet;
 import org.newdawn.slick.Animation;
@@ -13,26 +15,37 @@ import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
 public class LevelState extends BasicGameState {
+	private Player player;
+	private PlayerControl playerControl;
 	private Enemy enemy;
-	Level level;
-	String firstLevel;
+	private Level level;
+	private String firstLevel;
+	
 	public LevelState ( String firstLevel){
 		this.firstLevel = firstLevel;
-			}
+	}
+	
 	public void init(GameContainer container, StateBasedGame sbg)throws SlickException{
 		
 		level = new Level (firstLevel);
+		
+		player = new Player(170,250);
+		level.addElement(player);
+		
+		playerControl = new PlayerControl(player);
+		
 		enemy = new Enemy(280,274);
-		level.addEnemy(enemy);
+		level.addElement(enemy);
 	}
 
 	public void update (GameContainer container,  StateBasedGame  sbg, int delta) throws SlickException{
-		
+		//player movement is registered every frame
+		playerControl.handleInput(container.getInput(), delta);
 	}
 	public void render (GameContainer container, StateBasedGame sbg, Graphics g) throws SlickException{
 		g.scale(SimpleSlickGame.SCALE, SimpleSlickGame.SCALE);
 		level.render();	
-		enemy.moveRight();
+		//enemy.moveRight();
 	}
 	public void KeyPressed ( int key, char code){
 		if (key == Input.KEY_ESCAPE){
