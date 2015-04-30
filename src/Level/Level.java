@@ -30,9 +30,7 @@ public class Level {
 	        loadTileMap();
 	       }
 	    
-	    //for the sky
-	   // public Image background = new Image("data/levels" + map.getMapProperty("background","Oose_Mario_game_sky"));
-	  
+	 
 	    public void addEnemy(Element e){
 	    	enemies.add(e);
 	    }
