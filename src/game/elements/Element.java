@@ -69,12 +69,22 @@ public abstract class Element  {
 		
 		
 	}
-	public void moveRight(){
-		x++;
-	}
-	public void moveLeft(){
-		x--;
-	}
+    public void moveLeft(int delta){
+    	x = x - (0.15f*delta);
+    }
+     
+    public void moveRight(int delta){
+    	x = x + (0.15f*delta);
+    }
+    public void moveUp(int delta){
+        y = y - (0.15f*delta);
+    }
+//	public void moveRight(){
+//		x++;
+//	}
+//	public void moveLeft(){
+//		x--;
+//	}
 }
 
 	 

@@ -40,7 +40,7 @@ public class LevelState extends BasicGameState {
 		  g.drawImage (background, 0, 0, null);
 		  
 		level.render();	
-		enemy.moveRight();
+		//enemy.moveRight();
 		
 		
 	}

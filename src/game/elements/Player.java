@@ -7,6 +7,6 @@ public class Player extends Element {
      
     public Player(float x, float y) throws SlickException{
     	super(x,y);
-    	sprite = new Image("data/img/characters/player/player.png"); //dose not do anything right now
+    	sprite = new Image("images/mario_small.png");
     }
 }
