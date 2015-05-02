@@ -1,7 +1,7 @@
 package controls;
 
 import game.elements.Player;
-
+import game.elements.*;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 
@@ -32,4 +32,9 @@ public class PlayerControl{
 		}
 		
 	}
+
+
+
+
+
 }

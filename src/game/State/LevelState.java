@@ -1,4 +1,5 @@
 package game.State;
+import game.Physics.Physics;
 import game.SimpleSlickGame;
 import Level.Level;
 import game.elements.Enemy;
@@ -22,6 +23,7 @@ public class LevelState extends BasicGameState {
 	public Image background;
 	private Player player;
 	private PlayerControl playerControl;
+	private Physics physics;
 	public LevelState ( String firstLevel){
 		this.firstLevel = firstLevel;
 			}
@@ -51,9 +53,10 @@ public class LevelState extends BasicGameState {
 		playerControl.handleInput(container.getInput(), delta);
 		//player gravity
 		player.applyGravity(0.2f);
-		player.moveDown(delta);
-
-	}
+		//player.moveDown(delta);
+	    physics.handlePhysics(level, delta);
+	    }
+	
 	public void render (GameContainer container, StateBasedGame sbg, Graphics g) throws SlickException{
 		g.scale(SimpleSlickGame.SCALE, SimpleSlickGame.SCALE);
 

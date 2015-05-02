@@ -7,13 +7,13 @@ import org.newdawn.slick.Image;
 
 
 
+
+
+import Level.*;
 import Level.Tile.AirTile;
 import Level.Tile.SolidTile;
 import Level.Tile.Tile;
-
 import game.elements.*;
-
-//import java.awt.Image;
 
 import java.util.ArrayList;
 
@@ -34,9 +34,7 @@ public class Level {
 	       }
 	    
 	 
-	    public void addElement(Element e){
-	    	elements.add(e);
-	    }
+	   
 	  
 	    private void loadTileMap(){
 	        //create an array to hold all the tiles in the map
@@ -60,9 +58,9 @@ public class Level {
 	                Tile tile = null;
 	 
 	                //check the type of tile 
-	                switch(map.getTileProperty(tileID, "tileType", "solid")){
+	                switch(map.getTileProperty(tileID, "tileType", "Solid")){
 	                    case "air":
-	                        tile = new AirTile(x,y);
+	                        tile = new AirTile(x,y);              
 	                        break;
 	                    default:
 	                        tile = new SolidTile(x,y);
@@ -72,6 +70,15 @@ public class Level {
 	            }
 	        }
 	    }
+	    
+	    public void addElement(Element e){
+	    	elements.add(e);
+	    }
+	 
+	    public ArrayList<Element> getElements(){
+	        return elements;
+	    }
+	    
 	    public Tile[][] getTiles(){
 	        return tiles;
 	    }
