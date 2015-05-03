@@ -1,9 +1,10 @@
 package game.Physics;
-import game.elements.*;
-import Level.Tile.*;
-import Level.*;
+import game.elements.Element;
+import Level.Level;
+import Level.LevelObject;
+import Level.Tile.Tile;
 import java.util.ArrayList;
-import org.newdawn.slick.*;
+
 public class Physics {
 	private final float gravity = 0.0015f;
 	 

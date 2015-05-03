@@ -14,7 +14,7 @@ public abstract class Element extends LevelObject {
 	protected HashMap<Facing,Image>		sprites;
 	
 	protected HashMap<Facing,Animation>	movingAnimations;
-	protected long 						lastTimeMoved;
+	//protected long 						lastTimeMoved;
 	protected boolean                   moving = false;
 	protected float                     accelerationSpeed = 1;
 	protected float                     decelerationSpeed = 1;
@@ -118,7 +118,7 @@ public abstract class Element extends LevelObject {
     	}else{
     		sprites.get(facing).draw(x-2, y-2);
     	}
-    	//sprite.draw(x+500,y+250);
+    	
     }
 	
 	
