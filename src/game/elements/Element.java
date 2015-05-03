@@ -27,7 +27,7 @@ public abstract class Element extends LevelObject {
 	public Element(float x, float y) throws SlickException{
 		super(x,y);
 		
-		setSprite(new Image(".png"));
+		setSprite(new Image("images/mario_small.png"));
 		
 		//all elements face right by default
 		facing = Facing.RIGHT;
