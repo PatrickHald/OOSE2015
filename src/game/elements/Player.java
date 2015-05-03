@@ -1,9 +1,13 @@
 package game.elements;
 import game.Physics.*;
-     
+
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 
+<<<<<<< HEAD
+=======
+import Level.LevelObject;
+>>>>>>> branch 'master' of https://github.com/PatrickHald/OOSE2015.git
 
 public class Player extends Element {
 

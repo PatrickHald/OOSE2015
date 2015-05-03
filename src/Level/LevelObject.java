@@ -1,5 +1,6 @@
 package Level;
-import game.Physics.*;
+import game.Physics.AABoundingRect;
+import game.Physics.BoundingShape;
 
 public abstract class LevelObject {
 	 

@@ -2,19 +2,11 @@ package Level;
 
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.tiled.TiledMap;
-import org.newdawn.slick.Image;
 
-
-
-
-
-
-import Level.*;
 import Level.Tile.AirTile;
 import Level.Tile.SolidTile;
 import Level.Tile.Tile;
-import game.elements.*;
-
+import game.elements.Element;
 import java.util.ArrayList;
 
 public class Level {
@@ -26,7 +18,7 @@ public class Level {
 	   
 	    private Tile[][] tiles;
 	    public Level(String level) throws SlickException{
-	        map = new TiledMap("data/levels/" + level + ".tmx",true);
+	        map = new TiledMap("data/levels/" + level + ".tmx","data/levels");
 	       // characters = new ArrayList<Character>();
 	        elements = new ArrayList<Element>();
 	        loadTileMap();
@@ -43,7 +35,6 @@ public class Level {
 	        int layerIndex = map.getLayerIndex("CollisionLayer");
 	 
 	        if(layerIndex == -1){
-	            //TODO we can clean this up later with an exception if we want, but because we make the maps ourselves this will suffice for now
 	            System.err.println("Map does not have the layer \"CollisionLayer\"");
 	            System.exit(0);
 	        }
