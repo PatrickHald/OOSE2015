@@ -27,7 +27,7 @@ public abstract class Element extends LevelObject {
 	public Element(float x, float y) throws SlickException{
 		super(x,y);
 		
-		setSprite(new Image("images/mario_small.png"));
+		setSprite(new Image("images/marioStand1.png"));
 		
 		//all elements face right by default
 		facing = Facing.RIGHT;
@@ -82,7 +82,7 @@ public abstract class Element extends LevelObject {
 	public void jump(){
 	    if(onGround)
 	        y_velocity = -0.4f;
-	    }
+	}
 	
 	public void moveLeft(int delta){
 	    //if we aren't already moving at maximum speed
