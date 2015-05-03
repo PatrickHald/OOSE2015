@@ -2,20 +2,18 @@ package Level;
 
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.tiled.TiledMap;
+
 import game.elements.Element;
+import game.elements.Enemy;
+
 import java.util.ArrayList;
 
 import Level.Tile.AirTile;
 import Level.Tile.SolidTile;
 import Level.Tile.Tile;
-
 import game.SimpleSlickGame;
-import game.elements.Element;
 import game.elements.Player;
 import game.State.LevelState;
-
-import java.util.ArrayList;
-
 
 public class Level {
 	   private TiledMap map;
@@ -24,15 +22,18 @@ public class Level {
 	   //a list of all characters present somewhere on this map
 	   private ArrayList<Element> elements;
 	   private Player player;
+	   private Enemy enemy;
 	   
 	    private Tile[][] tiles;
-	    public Level(String level, Player player) throws SlickException{
+	    public Level(String level, Player player, Enemy enemy) throws SlickException{
 	        map = new TiledMap("data/levels/" + level + ".tmx","data/levels");
 	       // characters = new ArrayList<Character>();
 	        elements = new ArrayList<Element>();
 	        
 	        this.player=player;
 	        addElement(player);
+	        this.enemy = enemy;
+	        addElement(enemy);
 	        
 	        loadTileMap();
 
@@ -131,7 +132,7 @@ public class Level {
 		        int offset_y = getYOffset();
 		 
 		        //render the map first
-		        map.render(-(offset_x%32), -(offset_y%32), offset_x/32, offset_y/32, 32, 18);
+		        map.render(-(offset_x%32), -(offset_y%32), offset_x/32, offset_y/32, 33, 19);
 		 
 		        //and then render the characters on top of the map
 		        for(Element e : elements){

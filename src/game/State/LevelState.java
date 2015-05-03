@@ -37,31 +37,20 @@ public class LevelState extends BasicGameState {
 		this.firstLevel = firstLevel;
 			}
 	
-	public void init(GameContainer container, StateBasedGame sbg)throws SlickException{
-		
-		level = new Level (firstLevel,player);
-
-		
+	public void init(GameContainer container, StateBasedGame sbg)throws SlickException {		
 		player = new Player(170,275);
-		level.addElement(player);
+		//level.addElement(player);
 		
+		enemy = new Enemy (200,200);
+		level = new Level (firstLevel,player,enemy);
+
 		//link to PlayerControl class
 		playerControl = new KeyBoard(player);
-		
-		
-       
-        
-		physics = new Physics();
-		
-	
 
-		enemy = new Enemy(280,274);
-		level.addElement(enemy);
+		physics = new Physics();
 	}
 
-	
 	public void update (GameContainer container,  StateBasedGame  sbg, int delta) throws SlickException{
-
 		//player movement is registered every frame
 		playerControl.handleInput(container.getInput(), delta);
 		physics.handlePhysics(level, delta);

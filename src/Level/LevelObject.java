@@ -3,7 +3,7 @@ package Level;
 import game.Physics.AABoundingRect;
 import game.Physics.BoundingShape;
 
-public class LevelObject {
+public abstract class LevelObject {
     
     protected float x;
     protected float y;
@@ -84,5 +84,5 @@ public class LevelObject {
     public BoundingShape getBoundingShape(){
         return boundingShape;
     }
-    
+    public abstract void render (float offset_x, float offset_y);
 }

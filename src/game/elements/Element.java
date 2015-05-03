@@ -2,7 +2,6 @@ package game.elements;
 
 import java.util.HashMap;
 
-
 import Level.LevelObject;
 
 import org.newdawn.slick.Animation;
@@ -11,7 +10,7 @@ import org.newdawn.slick.SlickException;
 
 public abstract class Element extends LevelObject {
     
-    protected HashMap<Facing,Image>     sprites;
+	 protected HashMap<Facing,Image>     sprites;
     
     protected HashMap<Facing,Animation> movingAnimations;
     protected Facing                    facing;
