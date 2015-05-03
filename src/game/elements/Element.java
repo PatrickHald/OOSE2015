@@ -27,12 +27,12 @@ public abstract class Element extends LevelObject {
 	public Element(float x, float y) throws SlickException{
 		super(x,y);
 		
-		setSprite(new Image("data/img/placeholder_sprite.png"));
+		setSprite(new Image(".png"));
 		
 		//all elements face right by default
 		facing = Facing.RIGHT;
 		// ----- Placeholder for image -----
-		//sprite = new Image("data/img/placeholder_sprite.png");
+		//sprite = new Image(".png");
 	}
 	
 	public enum Facing{
