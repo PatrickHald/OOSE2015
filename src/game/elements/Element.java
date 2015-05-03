@@ -118,7 +118,7 @@ public abstract class Element extends LevelObject {
     	}else{
     		sprites.get(facing).draw(x-2, y-2);
     	}
-    	//sprite.draw(x+500,y+250);
+    	
     }
 	
 	
