@@ -109,7 +109,7 @@ public abstract class Element extends LevelObject {
         if(movingAnimations != null && moving){
             movingAnimations.get(facing).draw(x-2,y-2);                
         }else{            
-            sprites.get(facing).draw(x-500, y-500);          
+            sprites.get(facing).draw(x-2, y-2);          
         }
     }
 
