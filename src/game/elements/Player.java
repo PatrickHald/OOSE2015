@@ -16,7 +16,9 @@ public class Player extends Element {
     	,125);
     	
     	boundingShape = new AABoundingRect(x+3, y, 26, 32);
-    	 
+    	
+    	
+    	
         accelerationSpeed = 0.001f;
         maximumSpeed = 0.15f;
         maximumFallSpeed = 0.3f;
