@@ -11,6 +11,8 @@ import controls.PlayerControl;
 import controls.KeyBoard;
 import controls.EnemyControl;
 import game.elements.Player;
+import Level.*;
+import org.newdawn.slick.tiled.TiledMap;
 
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SpriteSheet;
@@ -37,23 +39,29 @@ public class LevelState extends BasicGameState {
 	
 	public void init(GameContainer container, StateBasedGame sbg)throws SlickException{
 		
-		level = new Level (firstLevel);
+		level = new Level (firstLevel,player);
 
 		
 		player = new Player(170,415);
-		level.addElement(player);
+		//level.addElement(player);
 		
 		//link to PlayerControl class
 		playerControl = new KeyBoard(player);
 		//declaring gravity value
 		//player.setYVelocity(0.4f);
+		
+		
+       
+        
 		physics = new Physics();
 		
+	
 
 		enemy = new Enemy(280,274);
 		level.addElement(enemy);
 	}
 
+	
 	public void update (GameContainer container,  StateBasedGame  sbg, int delta) throws SlickException{
 
 		//player movement is registered every frame
