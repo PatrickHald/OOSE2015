@@ -45,8 +45,6 @@ public class LevelState extends BasicGameState {
 		
 		//link to PlayerControl class
 		playerControl = new KeyBoard(player);
-		//declaring gravity value
-		//player.setYVelocity(0.4f);
 		physics = new Physics();
 		
 

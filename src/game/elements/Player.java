@@ -1,5 +1,5 @@
 package game.elements;
-import game.Physics.*;
+import game.Physics.AABoundingRect;
 
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;

@@ -1,5 +1,5 @@
 package game.elements;
-import Level.*;
+import Level.LevelObject;
 import game.Physics.BoundingShape;
 
 import java.util.HashMap;
