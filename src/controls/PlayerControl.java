@@ -27,8 +27,8 @@ public class PlayerControl{
 			player.moveRight(delta);
 		}
 		//use SPACE to jump
-		if(i.isKeyDown(Input.KEY_SPACE)){
-			player.moveUp(delta);
+		 if(i.isKeyDown(Input.KEY_SPACE)){
+	            player.jump();
 		}
 		
 	}

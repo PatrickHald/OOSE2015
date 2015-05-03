@@ -21,20 +21,6 @@ public abstract class Element extends LevelObject {
 		// ----- Placeholder for image -----
 		//sprite = new Image("data/img/placeholder_sprite.png");
 	}
-	 
-        
-	  
-    
- 
-	 public void moveUp(int delta){
-	        y = y - (0.60f*delta);
-	    }
-	    public void moveDown(int delta){
-	        y = y + (0.15f*delta);
-
-	    }
-
-
 	public boolean isMoving(){
 	        return moving;
 	    }
@@ -71,7 +57,7 @@ public abstract class Element extends LevelObject {
 	                x_velocity = -maximumSpeed;
 	            }
 	        }
-	        
+	        moving = true;
 	    }
 	 
 	    public void moveRight(int delta){
@@ -81,7 +67,7 @@ public abstract class Element extends LevelObject {
 	                x_velocity = maximumSpeed;
 	            }
 	        }
-	       
+	        moving = true;
 	    }
 	 
 	   
@@ -90,7 +76,8 @@ public abstract class Element extends LevelObject {
 
  
     public void render(){
-    	sprite.draw(x+500,y+250);
+    	
+      	sprite.draw(x+500,y+250);
  
 }
 	

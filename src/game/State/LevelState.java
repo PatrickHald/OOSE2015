@@ -43,8 +43,8 @@ public class LevelState extends BasicGameState {
 		
 		
 
-		enemy = new Enemy(280,274);
-		level.addElement(enemy);
+	//	enemy = new Enemy(280,274);
+		//level.addElement(enemy);
 	}
 
 	public void update (GameContainer container,  StateBasedGame  sbg, int delta) throws SlickException{
@@ -54,7 +54,7 @@ public class LevelState extends BasicGameState {
 		//player gravity
 		player.applyGravity(0.2f);
 		//player.moveDown(delta);
-	    physics.handlePhysics(level, delta);
+	    //physics.handlePhysics(level, delta);
 	    }
 	
 	public void render (GameContainer container, StateBasedGame sbg, Graphics g) throws SlickException{

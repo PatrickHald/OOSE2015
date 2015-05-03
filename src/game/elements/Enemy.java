@@ -9,7 +9,7 @@ public class Enemy extends Element {
     
     public Enemy(float x, float y) throws SlickException{
     	super(x,y);
-		sprite = new Image("images/Goomba2.png");    	
+		//sprite = new Image("images/Goomba2.png");    	
     }
   
 }
