@@ -14,7 +14,7 @@ public abstract class Element extends LevelObject {
 	protected HashMap<Facing,Image>		sprites;
 	
 	protected HashMap<Facing,Animation>	movingAnimations;
-	protected long 						lastTimeMoved;
+	//protected long 						lastTimeMoved;
 	protected boolean                   moving = false;
 	protected float                     accelerationSpeed = 1;
 	protected float                     decelerationSpeed = 1;
@@ -82,7 +82,7 @@ public abstract class Element extends LevelObject {
 	public void jump(){
 	    if(onGround)
 	        y_velocity = -0.4f;
-	    }
+	}
 	
 	public void moveLeft(int delta){
 	    //if we aren't already moving at maximum speed
