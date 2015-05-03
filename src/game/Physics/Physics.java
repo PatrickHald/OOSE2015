@@ -53,9 +53,9 @@ public class Physics {
 	        for(Element e : level.getElements()){
 	 
 	            //and now decelerate the character if he is not moving anymore
-	            if(!e.isMoving()){
+	           // if(!e.isMoving()){
 	                e.decelerate(delta);
-	            }
+	            //}
 	 
 	            handleGameObject(e,level,delta);
 	        }

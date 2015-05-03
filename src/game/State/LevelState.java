@@ -1,11 +1,17 @@
 package game.State;
+import java.awt.Color;
+
+import Level.Tile.*;
 import game.Physics.Physics;
 import game.SimpleSlickGame;
 import Level.Level;
+import game.elements.Element;
 import game.elements.Enemy;
-import game.elements.*;
 import controls.PlayerControl;
+import controls.KeyBoard;
+import controls.EnemyControl;
 import game.elements.Player;
+
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SpriteSheet;
 import org.newdawn.slick.Animation;
@@ -18,12 +24,13 @@ import org.newdawn.slick.state.StateBasedGame;
 
 public class LevelState extends BasicGameState {
 	private Enemy enemy;
-	Level level;
-	String firstLevel;
+	private Level level;
+	private String firstLevel;
 	public Image background;
 	private Player player;
 	private PlayerControl playerControl;
-	private Physics physics;
+	private Physics physics ;
+	
 	public LevelState ( String firstLevel){
 		this.firstLevel = firstLevel;
 			}
@@ -33,28 +40,25 @@ public class LevelState extends BasicGameState {
 		level = new Level (firstLevel);
 
 		
-		player = new Player(170,250);
+		player = new Player(170,415);
 		level.addElement(player);
 		
 		//link to PlayerControl class
-		playerControl = new PlayerControl(player);
+		playerControl = new KeyBoard(player);
 		//declaring gravity value
-		player.setYVelocity(0.4f);
-		
+		//player.setYVelocity(0.4f);
+		physics = new Physics();
 		
 
-	//	enemy = new Enemy(280,274);
-		//level.addElement(enemy);
+		enemy = new Enemy(280,274);
+		level.addElement(enemy);
 	}
 
 	public void update (GameContainer container,  StateBasedGame  sbg, int delta) throws SlickException{
 
 		//player movement is registered every frame
 		playerControl.handleInput(container.getInput(), delta);
-		//player gravity
-		player.applyGravity(0.2f);
-		//player.moveDown(delta);
-	    //physics.handlePhysics(level, delta);
+		physics.handlePhysics(level, delta);
 	    }
 	
 	public void render (GameContainer container, StateBasedGame sbg, Graphics g) throws SlickException{
@@ -66,7 +70,6 @@ public class LevelState extends BasicGameState {
 		  
 		level.render();	
 		//enemy.moveRight();
-		
 		
 	}
 	public void KeyPressed ( int key, char code){

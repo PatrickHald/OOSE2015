@@ -1,8 +1,10 @@
 package game.elements;
 import game.Physics.*;
-     
+
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
+
+import Level.LevelObject;
 
 public class Player extends Element {
 
