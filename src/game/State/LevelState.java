@@ -40,7 +40,7 @@ public class LevelState extends BasicGameState {
 		level = new Level (firstLevel);
 
 		
-		player = new Player(170,415);
+		player = new Player(170,275);
 		level.addElement(player);
 		
 		//link to PlayerControl class
