@@ -86,7 +86,7 @@ public class Level {
 	    }
 	    
 		public int getXOffset(){
-	        int offset_x = 0;
+	        int offset_x = 1;
 	 
 	        //the first thing we are going to need is the half-width of the screen, to calculate if the player is in the middle of our screen
 	        int half_width = (int) (SimpleSlickGame.WINDOW_WIDTH/SimpleSlickGame.SCALE/2);
@@ -97,7 +97,7 @@ public class Level {
 	        //now we have 3 cases here
 	        if(player.getX() < half_width){
 	            //the player is between the most left side of the map, which is zero and half a screen size which is 0+half_screen
-	            offset_x = 0;
+	            offset_x = 1;
 	        }else if(player.getX() > maxX){
 	            //the player is between the maximum point of scrolling and the maximum width of the map
 	            //the reason why we substract half the screen again is because we need to set our offset to the topleft position of our screen
