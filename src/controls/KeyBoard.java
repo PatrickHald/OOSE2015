@@ -23,7 +23,7 @@ public class KeyBoard extends PlayerControl {
 	            player.moveRight(delta);
 	        }else{
 	            //we dont move if we don't press left or right, this will have the effect that our player decelerates
-	           // player.setMoving(false);
+	        	player.setMoving(false);
 	        }
 	        
 	        if(i.isKeyDown(Input.KEY_SPACE)){
