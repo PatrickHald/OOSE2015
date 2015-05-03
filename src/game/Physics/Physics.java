@@ -1,67 +1,28 @@
 package game.Physics;
-import game.elements.*;
-import Level.Tile.*;
-import Level.*;
+import game.elements.Element;
+import Level.Level;
+import Level.LevelObject;
+import Level.Tile.Tile;
 import java.util.ArrayList;
-import org.newdawn.slick.*;
+
 public class Physics {
 	private final float gravity = 0.0015f;
-	 
-
-	   private boolean checkCollision(LevelObject obj, Tile[][] mapTiles){
-	        //get only the tiles that matter
-	        ArrayList<Tile> tiles = obj.getBoundingShape().getTilesOccupying(mapTiles);
-	        for(Tile t : tiles){
-	            //if this tile has a bounding shape
-	            if(t.getBoundingShape() != null){
-	                if(t.getBoundingShape().checkCollision(obj.getBoundingShape())){
-	                    return true;
-	                }
-	            }
-	        }
-	        return false;
-	    }
-
-	   private boolean isOnGroud(LevelObject obj, Tile[][] mapTiles){
-	        //we get the tiles that are directly "underneath" the characters, also known as the ground tiles
-	        ArrayList<Tile> tiles = obj.getBoundingShape().getGroundTiles(mapTiles);
-	 
-	        //we lower the the bounding object a bit so we can check if we are actually a bit above the ground
-	        obj.getBoundingShape().movePosition(0, 1);
-	 
-	        for(Tile t : tiles){
-	            //not every tile has a bounding shape (air tiles for example)
-	            if(t.getBoundingShape() != null){
-	                //if the ground and the lowered object collide, then we are on the ground
-	                if(t.getBoundingShape().checkCollision(obj.getBoundingShape())){
-	                    //don't forget to move the object back up even if we are on the ground!
-	                    obj.getBoundingShape().movePosition(0, -1);
-	                    return true;
-	                }
-	            }
-	        }
-	        
-	   
-	 
-	        //and obviously we have to move the object back up if we don't hit the ground
-	        obj.getBoundingShape().movePosition(0, -1);
-	 
-	        return false;
-	    }
-    
+	
+    public void handlePhysics(Level level, int delta){
+        handleElements(level,delta);
+    }
+	
+	
 	   private void handleElements(Level level, int delta){
 	        for(Element e : level.getElements()){
 	 
 	            //and now decelerate the character if he is not moving anymore
-	           // if(!e.isMoving()){
+	            if(!e.isMoving()){
 	                e.decelerate(delta);
-	            //}
+	            }
 	 
 	            handleGameObject(e,level,delta);
 	        }
-	    }
-	    public void handlePhysics(Level level, int delta){
-	        handleElements(level,delta);
 	    }
 	    
 	    private void handleGameObject(LevelObject obj, Level level, int delta){
@@ -154,5 +115,49 @@ public class Physics {
 	            }
 	        }
 	    }
+
+	   private boolean checkCollision(LevelObject obj, Tile[][] mapTiles){
+	        //get only the tiles that matter
+	        ArrayList<Tile> tiles = obj.getBoundingShape().getTilesOccupying(mapTiles);
+	        for(Tile t : tiles){
+	            //if this tile has a bounding shape
+	            if(t.getBoundingShape() != null){
+	                if(t.getBoundingShape().checkCollision(obj.getBoundingShape())){
+	                    return true;
+	                }
+	            }
+	        }
+	        return false;
+	    }
+
+	   private boolean isOnGroud(LevelObject obj, Tile[][] mapTiles){
+	        //we get the tiles that are directly "underneath" the characters, also known as the ground tiles
+	        ArrayList<Tile> tiles = obj.getBoundingShape().getGroundTiles(mapTiles);
+	 
+	        //we lower the the bounding object a bit so we can check if we are actually a bit above the ground
+	        obj.getBoundingShape().movePosition(0, 1);
+	 
+	        for(Tile t : tiles){
+	            //not every tile has a bounding shape (air tiles for example)
+	            if(t.getBoundingShape() != null){
+	                //if the ground and the lowered object collide, then we are on the ground
+	                if(t.getBoundingShape().checkCollision(obj.getBoundingShape())){
+	                    //don't forget to move the object back up even if we are on the ground!
+	                    obj.getBoundingShape().movePosition(0, -1);
+	                    return true;
+	                }
+	            }
+	        }
+	        
+	   
+	 
+	        //and obviously we have to move the object back up if we don't hit the ground
+	        obj.getBoundingShape().movePosition(0, -1);
+	 
+	        return false;
+	    }
+    
+	
+	
 }
 

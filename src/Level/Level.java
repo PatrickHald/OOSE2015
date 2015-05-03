@@ -2,16 +2,20 @@ package Level;
 
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.tiled.TiledMap;
+import game.elements.Element;
+import java.util.ArrayList;
 
 import Level.Tile.AirTile;
 import Level.Tile.SolidTile;
 import Level.Tile.Tile;
+
 import game.SimpleSlickGame;
 import game.elements.Element;
 import game.elements.Player;
 import game.State.LevelState;
 
 import java.util.ArrayList;
+
 
 public class Level {
 	   private TiledMap map;
@@ -34,9 +38,6 @@ public class Level {
 
 	       }
 	    
-	 
-	   
-	  
 	    private void loadTileMap(){
 	        //create an array to hold all the tiles in the map
 	        tiles = new Tile[map.getWidth()][map.getHeight()];
@@ -58,7 +59,7 @@ public class Level {
 	                Tile tile = null;
 	 
 	                //check the type of tile 
-	                switch(map.getTileProperty(tileID, "tileType", "Solid")){
+	                switch(map.getTileProperty(tileID, "TileType", "Solid")){
 	                    case "air":
 	                        tile = new AirTile(x,y);              
 	                        break;

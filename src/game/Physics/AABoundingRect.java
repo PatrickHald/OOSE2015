@@ -2,7 +2,7 @@
 package game.Physics;
 import java.util.ArrayList;
 
-import Level.Tile.*;
+import Level.Tile.Tile;
 
 public  class AABoundingRect extends BoundingShape{
 	

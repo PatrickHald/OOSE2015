@@ -42,13 +42,11 @@ public class LevelState extends BasicGameState {
 		level = new Level (firstLevel,player);
 
 		
-		player = new Player(170,415);
-		//level.addElement(player);
+		player = new Player(170,275);
+		level.addElement(player);
 		
 		//link to PlayerControl class
 		playerControl = new KeyBoard(player);
-		//declaring gravity value
-		//player.setYVelocity(0.4f);
 		
 		
        
