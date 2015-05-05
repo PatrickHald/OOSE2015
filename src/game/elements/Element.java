@@ -23,7 +23,7 @@ public abstract class Element extends LevelObject {
     public Element(float x, float y) throws SlickException{
         super(x,y);
         //in case we forget to set the image, we don't want the game to crash, but it still has to be obvious that something was forgotten
-        setSprite(new Image("images/marioStand1_2.0.png"));
+        setSprite(new Image("images/Goomba3.png"));
         
         //default direction will be right
         facing = Facing.RIGHT;
@@ -108,7 +108,7 @@ public abstract class Element extends LevelObject {
         //draw a moving animation if we have one and we moved within the last 150 milliseconds
         if(movingAnimations != null && moving){
 
-            movingAnimations.get(facing).draw(x-2,y-2);
+            movingAnimations.get(facing).draw(x-2-offset_x,y-2-offset_y);
         }else{
             sprites.get(facing).draw(x-2-offset_x, y-2-offset_y);
 
