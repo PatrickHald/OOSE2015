@@ -29,7 +29,7 @@ public class Enemy extends Element {
         maximumFallSpeed = 0.3f;
         decelerationSpeed = 0.001f;
         
-        moveRight(20);
+        moveRight(25);
     }
     
     public void updateBoundingShape(){

@@ -12,7 +12,7 @@ import org.newdawn.slick.state.StateBasedGame;
 public class SimpleSlickGame extends StateBasedGame
 {
 	//For width and height 
-	public static final int 	WINDOW_WIDTH = 1280;
+	public static final int 	WINDOW_WIDTH = 800;
 	public static final int 	WINDOW_HEIGTH = WINDOW_WIDTH /16*9;
 	public static final boolean FULLSCREEN = false;
 	

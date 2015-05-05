@@ -1,8 +1,11 @@
 package game.Physics;
 import game.elements.Element;
+import game.elements.Enemy;
+import game.elements.Player;
 import Level.Level;
 import Level.LevelObject;
 import Level.Tile.Tile;
+
 import java.util.ArrayList;
 
 public class Physics {
@@ -13,17 +16,22 @@ public class Physics {
     }
 	
 	
-	   private void handleElements(Level level, int delta){
-	        for(Element e : level.getElements()){
-	 
-	            //and now decelerate the character if he is not moving anymore
-	            if(!e.isMoving()){
-	                e.decelerate(delta);
-	            }
-	 
-	            handleGameObject(e,level,delta);
-	        }
-	    }
+    private void handleElements(Level level, int delta){
+    	for(Element e : level.getElements()){
+    		//and now decelerate the character if he is not moving anymore
+    		if(!e.isMoving()){
+    			e.decelerate(delta);
+    		}
+    		for(Element g: level.getElements()) {
+    			if(e instanceof Player && g instanceof Enemy)
+    				if(isColliding(e,g)) {
+    					System.out.println("colliding with enemy");
+    					// --- Lose health
+    				}
+    		}
+    		handleGameObject(e,level,delta);
+    	}
+    }
 	    
 	    private void handleGameObject(LevelObject obj, Level level, int delta){
 	    	 
@@ -115,7 +123,7 @@ public class Physics {
 	            }
 	        }
 	    }
-
+	    
 	   private boolean checkCollision(LevelObject obj, Tile[][] mapTiles){
 	        //get only the tiles that matter
 	        ArrayList<Tile> tiles = obj.getBoundingShape().getTilesOccupying(mapTiles);
@@ -130,6 +138,11 @@ public class Physics {
 	        return false;
 	    }
 
+	   private boolean isColliding(Element e, Element g) {
+		   return (e.getX() - 26.0f/2 < g.getX() + 26.0f/2) &&
+				  (g.getX() - 26.0f/2 < e.getX() + 26.0f/2);
+	   }
+	   
 	   private boolean isOnGroud(LevelObject obj, Tile[][] mapTiles){
 	        //we get the tiles that are directly "underneath" the characters, also known as the ground tiles
 	        ArrayList<Tile> tiles = obj.getBoundingShape().getGroundTiles(mapTiles);
