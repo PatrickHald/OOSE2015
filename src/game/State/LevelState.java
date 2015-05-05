@@ -35,6 +35,7 @@ public class LevelState extends BasicGameState {
 	private PlayerControl playerControl;
 	private Physics physics ;
 	private Objective objective;
+	//public int health = 0;
 	
 	public LevelState ( String firstLevel){
 		this.firstLevel = firstLevel;
@@ -79,7 +80,7 @@ public class LevelState extends BasicGameState {
 	
 		level.render();	
 		//the life string in upper left corner
-		 g.drawString("Life: ",12,35);
+	//	 g.drawString("Life: "+ health ,12,35);
 		  
 		//enemy.moveRight();
 		
