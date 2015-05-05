@@ -5,6 +5,7 @@ import game.elements.Player;
 import Level.Level;
 import Level.LevelObject;
 import Level.Tile.Tile;
+import Level.object.Objective;
 
 import java.util.ArrayList;
 
@@ -28,6 +29,12 @@ public class Physics {
     					System.out.println("colliding with enemy");
     					// --- Lose health
     					//g.moveLeft(delta);
+    				}
+    		}
+    		for(Element o: level.getElements()) {
+    			if(e instanceof Player && o instanceof Objective)
+    				if(isColliding(e,o)) {
+    					System.out.println("colliding with box");
     				}
     		}
     		handleGameObject(e,level,delta);
