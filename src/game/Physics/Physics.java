@@ -29,6 +29,7 @@ public class Physics {
     				if(isColliding(e,g)) {
     					System.out.println("colliding with enemy");
     					// --- Lose health
+    					
     				}
     		}
     		for(Element o: level.getElements()) {
@@ -58,8 +59,6 @@ public class Physics {
 	        }
 	        else
 	            obj.setYVelocity(0);
-	        
-	        //setMovingAnimation(new Image[]{new Image("images/goombaWalk1.png")},175);
 	        
 	        //calculate how much we actually have to move
 	        float x_movement = obj.getXVelocity()*delta;
