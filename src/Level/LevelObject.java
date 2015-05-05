@@ -84,5 +84,6 @@ public abstract class LevelObject {
     public BoundingShape getBoundingShape(){
         return boundingShape;
     }
+    
     public abstract void render (float offset_x, float offset_y);
 }

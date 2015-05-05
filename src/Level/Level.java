@@ -11,9 +11,11 @@ import java.util.ArrayList;
 import Level.Tile.AirTile;
 import Level.Tile.SolidTile;
 import Level.Tile.Tile;
+import Level.object.Objective;
 import game.SimpleSlickGame;
 import game.elements.Player;
 import game.State.LevelState;
+//import game.level.object.Objective;
 
 public class Level {
 	   private TiledMap map;
@@ -23,9 +25,12 @@ public class Level {
 	   private ArrayList<Element> elements;
 	   private Player player;
 	   private Enemy enemy;
+	   private Objective objective;
+	   //for our objects
+	 //  private ArrayList<LevelObject> levelObjects;
 	   
 	    private Tile[][] tiles;
-	    public Level(String level, Player player, Enemy enemy) throws SlickException{
+	    public Level(String level, Player player, Enemy enemy, Objective objective) throws SlickException{
 	        map = new TiledMap("data/levels/" + level + ".tmx","data/levels");
 	       // characters = new ArrayList<Character>();
 	        elements = new ArrayList<Element>();
@@ -34,12 +39,15 @@ public class Level {
 	        addElement(player);
 	        this.enemy = enemy;
 	        addElement(enemy);
-	        
+	        this.objective=objective;
+	        addElement(objective);
+	    
 	        loadTileMap();
 
 	       }
 	    
 	    private void loadTileMap(){
+	    	
 	        //create an array to hold all the tiles in the map
 	        tiles = new Tile[map.getWidth()][map.getHeight()];
 	 
@@ -49,7 +57,7 @@ public class Level {
 	            System.err.println("Map does not have the layer \"CollisionLayer\"");
 	            System.exit(0);
 	        }
-	 
+	        
 	        //loop through the whole map
 	        for(int x = 0; x < map.getWidth(); x++){
 	            for(int y = 0; y < map.getHeight(); y++){
@@ -80,11 +88,26 @@ public class Level {
 	    public ArrayList<Element> getElements(){
 	        return elements;
 	    }
+	  /*  public void addLevelObject(LevelObject obj){
+	        levelObjects.add(obj);
+	    }
+	    
+	    public ArrayList<LevelObject> getLevelObjects(){
+	        return levelObjects;
+	    }*/
 	    
 	    public Tile[][] getTiles(){
 	        return tiles;
 	    }
-	    
+	    //used for the object to remove it after 
+	/*    public void removeObject(LevelObject obj){
+	        levelObjects.remove(obj);
+	    }
+	 
+	    public void removeObjects(ArrayList<LevelObject> objects) {
+	        levelObjects.removeAll(objects);
+	    }
+	    */
 		public int getXOffset(){
 	        int offset_x = 1;
 	 
@@ -133,12 +156,19 @@ public class Level {
 		 
 		        //render the map first
 		        map.render(-(offset_x%32), -(offset_y%32), offset_x/32, offset_y/32, 33, 19);
-		 
+		       
+		       /* //render box on top of map
+		       for(LevelObject obj : levelObjects){
+		            obj.render(offset_x, offset_y);
+		          
+		        }*/
+
 		        //and then render the characters on top of the map
 		        for(Element e : elements){
 		            e.render(offset_x,offset_y);
+		            
 		        }
-		 
+		
 		    }
    
 		 
