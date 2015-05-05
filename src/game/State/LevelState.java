@@ -47,7 +47,7 @@ public class LevelState extends BasicGameState {
 		enemy = new Enemy (200,200);
 		
 		//make boxes
-		objective = new Objective (300,250);
+		objective = new Objective (900,150);
 		//level.addLevelObject(new Objective(128,315));
         
 		System.out.println("1");

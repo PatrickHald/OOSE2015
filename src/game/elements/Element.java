@@ -82,9 +82,15 @@ public abstract class Element extends LevelObject {
     }
     
     //The function is set to allow the player an added y-velocity value if the player is colliding with the ground tiles.
+    private boolean jumping;
+    
+    public boolean getJumping() {
+    	return jumping;
+    }
+    
     public void jump(){
         if(onGround)
-            y_velocity = -0.4f;
+            y_velocity = -0.6f;
     }
     
     //These booleans are only used for the get functions below, and set to private so they cannot be 
