@@ -2,6 +2,7 @@ package Level;
 
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.tiled.TiledMap;
+
 import game.elements.Element;
 import game.elements.Enemy;
 
@@ -10,14 +11,9 @@ import java.util.ArrayList;
 import Level.Tile.AirTile;
 import Level.Tile.SolidTile;
 import Level.Tile.Tile;
-
 import game.SimpleSlickGame;
-import game.elements.Element;
 import game.elements.Player;
 import game.State.LevelState;
-
-import java.util.ArrayList;
-
 
 public class Level {
 	   private TiledMap map;
@@ -26,20 +22,18 @@ public class Level {
 	   //a list of all characters present somewhere on this map
 	   private ArrayList<Element> elements;
 	   private Player player;
-
 	   private Enemy enemy;
 	   
-	   
 	    private Tile[][] tiles;
-	    public Level(String level, Player player) throws SlickException{
-
+	    public Level(String level, Player player, Enemy enemy) throws SlickException{
 	        map = new TiledMap("data/levels/" + level + ".tmx","data/levels");
 	       // characters = new ArrayList<Character>();
 	        elements = new ArrayList<Element>();
 	        
 	        this.player=player;
 	        addElement(player);
-
+	        this.enemy = enemy;
+	        addElement(enemy);
 	        
 	        loadTileMap();
 
@@ -92,7 +86,7 @@ public class Level {
 	    }
 	    
 		public int getXOffset(){
-	        int offset_x = 0;
+	        int offset_x = 1;
 	 
 	        //the first thing we are going to need is the half-width of the screen, to calculate if the player is in the middle of our screen
 	        int half_width = (int) (SimpleSlickGame.WINDOW_WIDTH/SimpleSlickGame.SCALE/2);
@@ -103,7 +97,7 @@ public class Level {
 	        //now we have 3 cases here
 	        if(player.getX() < half_width){
 	            //the player is between the most left side of the map, which is zero and half a screen size which is 0+half_screen
-	            offset_x = 0;
+	            offset_x = 1;
 	        }else if(player.getX() > maxX){
 	            //the player is between the maximum point of scrolling and the maximum width of the map
 	            //the reason why we substract half the screen again is because we need to set our offset to the topleft position of our screen
@@ -138,7 +132,7 @@ public class Level {
 		        int offset_y = getYOffset();
 		 
 		        //render the map first
-		        map.render(-(offset_x%32), -(offset_y%32), offset_x/32, offset_y/32, 32, 18);
+		        map.render(-(offset_x%32), -(offset_y%32), offset_x/32, offset_y/32, 33, 19);
 		 
 		        //and then render the characters on top of the map
 		        for(Element e : elements){

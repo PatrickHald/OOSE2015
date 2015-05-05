@@ -2,7 +2,6 @@ package game.elements;
 
 import java.util.HashMap;
 
-
 import Level.LevelObject;
 
 import org.newdawn.slick.Animation;
@@ -11,7 +10,7 @@ import org.newdawn.slick.SlickException;
 
 public abstract class Element extends LevelObject {
     
-    protected HashMap<Facing,Image>     sprites;
+	 protected HashMap<Facing,Image>     sprites;
     
     protected HashMap<Facing,Animation> movingAnimations;
     protected Facing                    facing;
@@ -23,7 +22,7 @@ public abstract class Element extends LevelObject {
     public Element(float x, float y) throws SlickException{
         super(x,y);
         //in case we forget to set the image, we don't want the game to crash, but it still has to be obvious that something was forgotten
-        setSprite(new Image("images/Goomba3.png"));
+        setSprite(new Image("images/marioStand1_2.0.png"));
         
         //default direction will be right
         facing = Facing.RIGHT;
@@ -114,4 +113,5 @@ public abstract class Element extends LevelObject {
 
         }
     }
+
 }
