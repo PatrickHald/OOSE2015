@@ -1,7 +1,7 @@
 package game.elements;
 
 import java.util.HashMap;
-
+import game.Physics.Physics;
 
 import Level.LevelObject;
 
@@ -33,7 +33,7 @@ public abstract class Element extends LevelObject {
 	}
 	
     protected void setMovingAnimation(Image[] images, int frameDuration){
-        movingAnimations = new HashMap<Facing,Animation>();
+    	movingAnimations = new HashMap<Facing,Animation>();
         
         //we can just put the right facing in with the default images
         movingAnimations.put(Facing.RIGHT, new Animation(images,frameDuration));
@@ -43,7 +43,6 @@ public abstract class Element extends LevelObject {
             facingLeftAnimation.addFrame(i.getFlippedCopy(true, false), frameDuration);
         }
         movingAnimations.put(Facing.LEFT, facingLeftAnimation);
-        
     }
     
     protected void setSprite(Image i){
@@ -103,16 +102,13 @@ public abstract class Element extends LevelObject {
         facing = Facing.RIGHT;
     }
     
-    public void render(float offset_x, float offset_y ){
-        
-        //draw a moving animation if we have one and we moved within the last 150 milliseconds
-        if(movingAnimations != null && moving){
-
-            movingAnimations.get(facing).draw(x-2,y-2);
-        }else{
-            sprites.get(facing).draw(x-2-offset_x, y-2-offset_y);
-
-        }
+    public void render(){
+   	 	//draw a moving animation if element has moved within the last 150 milliseconds
+    	if(movingAnimations != null && moving){
+    		movingAnimations.get(facing).draw(x-2,y-2);
+    	}else{
+    		sprites.get(facing).draw(x-2, y-2);
+    	}
     }
 
 }

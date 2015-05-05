@@ -28,7 +28,7 @@ public class Physics {
 	    private void handleGameObject(LevelObject obj, Level level, int delta){
 	    	 
 	        //first update the onGround of the object
-	        obj.setOnGround(isOnGroud(obj,level.getTiles()));
+	        obj.setOnGround(isOnGround(obj,level.getTiles()));
 	 
 	        //now apply gravitational force if we are not on the ground or when we are about to jump
 	        if(!obj.isOnGround() || obj.getYVelocity() < 0)
@@ -116,7 +116,7 @@ public class Physics {
 	        }
 	    }
 
-	   private boolean checkCollision(LevelObject obj, Tile[][] mapTiles){
+	   public boolean checkCollision(LevelObject obj, Tile[][] mapTiles){
 	        //get only the tiles that matter
 	        ArrayList<Tile> tiles = obj.getBoundingShape().getTilesOccupying(mapTiles);
 	        for(Tile t : tiles){
@@ -130,7 +130,7 @@ public class Physics {
 	        return false;
 	    }
 
-	   private boolean isOnGroud(LevelObject obj, Tile[][] mapTiles){
+	   public boolean isOnGround(LevelObject obj, Tile[][] mapTiles){
 	        //we get the tiles that are directly "underneath" the characters, also known as the ground tiles
 	        ArrayList<Tile> tiles = obj.getBoundingShape().getGroundTiles(mapTiles);
 	 

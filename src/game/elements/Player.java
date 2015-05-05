@@ -1,8 +1,12 @@
 package game.elements;
 import game.Physics.AABoundingRect;
+import game.Physics.Physics;
 
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
+
+import Level.LevelObject;
+import Level.Level.*;
 
 public class Player extends Element {
 
@@ -10,13 +14,14 @@ public class Player extends Element {
     	super(x,y);
     	
     	setSprite(new Image("images/marioStand1_2.0.png"));
-    	 
+    	
     	setMovingAnimation(new Image[]{new Image("images/marioWalk1_2.0.png"),new Image("images/marioWalk2_2.0.png"),
-    	new Image("images/marioWalk3_2.0.png")}
-    	,125);
+    		    new Image("images/marioWalk3_2.0.png")}
+    		    ,125);
+   
     	
     	boundingShape = new AABoundingRect(x+3, y, 26, 32);
-    	 
+    	
         accelerationSpeed = 0.001f;
         maximumSpeed = 0.15f;
         maximumFallSpeed = 0.3f;
