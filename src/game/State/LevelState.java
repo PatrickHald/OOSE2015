@@ -76,8 +76,11 @@ public class LevelState extends BasicGameState {
 		Image background = new Image ("data/levels/Oose_Mario_game_sky.png");
 		  g.drawImage (background, 0, 0, null);
 		  
+	
 		level.render();	
-		
+		//the life string in upper left corner
+		 g.drawString("Life: ",12,35);
+		  
 		//enemy.moveRight();
 		
 		
