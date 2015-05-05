@@ -1,8 +1,6 @@
 package game.elements;
 
 import game.Physics.AABoundingRect;
-import game.Physics.BoundingShape;
-import game.Physics.Physics;
 
 import java.io.IOException;
 
@@ -13,6 +11,7 @@ public class Enemy extends Element {
     
     public Enemy(float x, float y) throws SlickException{
     	super(x,y);
+
 		//sprite = new Image("images/Goomba3.png");
     	setSprite(new Image("images/marioStand1_2.0.png"));
     	
@@ -33,8 +32,8 @@ public class Enemy extends Element {
     
     public void updateBoundingShape(){
         boundingShape.updatePosition(x+3,y);
-        
-  	
+
+		//sprite = new Image("images/Goomba3.png");    	
     }
   
 }

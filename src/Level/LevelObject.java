@@ -38,7 +38,7 @@ public abstract class LevelObject {
     public float getYVelocity() {
         return y_velocity;
     }
-    
+
     public void setYVelocity(float f){
         y_velocity = f;
     }

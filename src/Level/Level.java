@@ -26,19 +26,20 @@ public class Level {
 	   //a list of all characters present somewhere on this map
 	   private ArrayList<Element> elements;
 	   private Player player;
+
 	   private Enemy enemy;
 	   
+	   
 	    private Tile[][] tiles;
-	    
-	    public Level(String level, Player player, Enemy enemy) throws SlickException{
+	    public Level(String level, Player player) throws SlickException{
+
 	        map = new TiledMap("data/levels/" + level + ".tmx","data/levels");
 	       // characters = new ArrayList<Character>();
 	        elements = new ArrayList<Element>();
 	        
-	        //this.player=player;
-	        //addElement(player);
-	        this.enemy = enemy;
-	        addElement(enemy);
+	        this.player=player;
+	        addElement(player);
+
 	        
 	        loadTileMap();
 
@@ -114,8 +115,7 @@ public class Level {
 	 
 	        return offset_x;
 	    }
-		
-	/*	 public int getYOffset(){
+		 public int getYOffset(){
 		        int offset_y = 0;
 		 
 		        int half_heigth = (int) (SimpleSlickGame.WINDOW_HEIGTH/SimpleSlickGame.SCALE/2);
@@ -146,10 +146,10 @@ public class Level {
 		        }
 		 
 		    }
-		 */
+   
 		 
-		
-	   public void render(){
+		 /*
+	    public void render(){
 	    	//chronological rendering of map, elements, etc.
 	    	map.render(0, 0, 0, 0, 32, 18);
 	    	
@@ -157,7 +157,7 @@ public class Level {
 	        	e.render();
 	        }
 	    }
-	    
+	    */
 	  
   
 
