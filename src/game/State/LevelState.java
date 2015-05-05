@@ -2,6 +2,7 @@ package game.State;
 import java.awt.Color;
 
 import Level.Tile.*;
+import Level.object.Objective;
 import game.Physics.Physics;
 import game.SimpleSlickGame;
 import Level.Level;
@@ -12,8 +13,8 @@ import controls.KeyBoard;
 import controls.EnemyControl;
 import game.elements.Player;
 import Level.*;
-import org.newdawn.slick.tiled.TiledMap;
 
+import org.newdawn.slick.tiled.TiledMap;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SpriteSheet;
 import org.newdawn.slick.Animation;
@@ -33,6 +34,7 @@ public class LevelState extends BasicGameState {
 	private Player player;
 	private PlayerControl playerControl;
 	private Physics physics ;
+	private Objective objective;
 	
 	public LevelState ( String firstLevel){
 		this.firstLevel = firstLevel;
@@ -42,14 +44,22 @@ public class LevelState extends BasicGameState {
 		player = new Player(170,275);
 		//level.addElement(player);
 		
+		enemy = new Enemy (200,200);
+		
+		//make boxes
+		objective = new Objective (300,250);
+		//level.addLevelObject(new Objective(128,315));
+        
+		System.out.println("1");
+       
 		enemy = new Enemy (250,200);
 		
 		enemy2 = new Enemy (500,200);
-		level = new Level (firstLevel,player,enemy,enemy2);
+		 level = new Level (firstLevel,player,enemy,enemy2, objective);
 
 		//link to PlayerControl class
 		playerControl = new KeyBoard(player);
-
+		System.out.println("2");
 		physics = new Physics();
 	}
 
@@ -67,7 +77,9 @@ public class LevelState extends BasicGameState {
 		  g.drawImage (background, 0, 0, null);
 		  
 		level.render();	
+		
 		//enemy.moveRight();
+		
 		
 	}
 	public void KeyPressed ( int key, char code){

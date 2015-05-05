@@ -23,7 +23,7 @@ public abstract class Element extends LevelObject {
         super(x,y);
         //in case we forget to set the image, we don't want the game to crash, but it still has to be obvious that something was forgotten
         setSprite(new Image("images/marioStand1_2.0.png"));
-        
+     
         //The default direction for any object will be right
         facing = Facing.RIGHT;
     }
