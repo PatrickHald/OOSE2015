@@ -168,7 +168,9 @@ public class Physics {
 
 	   private boolean isColliding(Element e, Element g) {
 		   return (e.getX() - 26.0f/2 < g.getX() + 26.0f/2) &&
-				  (g.getX() - 26.0f/2 < e.getX() + 26.0f/2);
+				  (g.getX() - 26.0f/2 < e.getX() + 26.0f/2) &&
+				  (e.getY() - 26.0f/2 < g.getY() + 26.0f/2) &&
+				  (g.getY() - 26.0f/2 < e.getY() + 26.0f/2);
 	   }
 	   
 	   private boolean isOnGroud(LevelObject obj, Tile[][] mapTiles){
