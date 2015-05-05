@@ -38,7 +38,7 @@ public abstract class Element extends LevelObject {
         //The HashMap takes a facing-direction and an animation image and becomes the movingAnimation
     	movingAnimations = new HashMap<Facing,Animation>();
         
-        //The images of an object, facing right, are 
+        //The images of an object, facing right, is set as the default animation
         movingAnimations.put(Facing.RIGHT, new Animation(images,frameDuration));
         
         //A new animation is declared for the leftward-flipped images.

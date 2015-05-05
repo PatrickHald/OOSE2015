@@ -15,7 +15,6 @@ public class Physics {
         handleElements(level,delta);
     }
 	
-	
     private void handleElements(Level level, int delta){
     	for(Element e : level.getElements()){
     		//and now decelerate the character if he is not moving anymore
@@ -27,7 +26,6 @@ public class Physics {
     				if(isColliding(e,g)) {
     					System.out.println("colliding with enemy");
     					// --- Lose health
-    					//g.moveLeft(delta);
     				}
     		}
     		handleGameObject(e,level,delta);
@@ -40,15 +38,17 @@ public class Physics {
 	        obj.setOnGround(isOnGroud(obj,level.getTiles()));
 	 
 	        //now apply gravitational force if we are not on the ground or when we are about to jump
-	        if(!obj.isOnGround() || obj.getYVelocity() < 0)
+	        if(!obj.isOnGround() || obj.getYVelocity() < 0){
 	            obj.applyGravity(gravity*delta);
+	            // --- Make register jump-sprite
+	        }
 	        else
 	            obj.setYVelocity(0);
 	 
 	        //calculate how much we actually have to move
 	        float x_movement = obj.getXVelocity()*delta;
 	        float y_movement   = obj.getYVelocity()*delta;
-	 
+	        
 	        //we have to calculate the step we have to take
 	        float step_y = 0;
 	        float step_x = 0;
