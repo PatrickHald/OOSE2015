@@ -27,6 +27,7 @@ public class Physics {
     				if(isColliding(e,g)) {
     					System.out.println("colliding with enemy");
     					// --- Lose health
+    					//g.moveLeft(delta);
     				}
     		}
     		handleGameObject(e,level,delta);
@@ -96,13 +97,24 @@ public class Physics {
 	 
 	                //if we collide with any of the bounding shapes of the tiles we have to revert to our original position
 	                if(checkCollision(obj,level.getTiles())){
-	 
-	                   //undo our step, and set the velocity and amount we still have to move to 0, because we can't move in that direction
+	                	//undo our step, and set the velocity and amount we still have to move to 0, because we can't move in that direction
 	                    obj.setX(obj.getX()-step_x);
 	                    obj.setXVelocity(0);
 	                    x_movement = 0;
+	                    //In the Element-class two get-functions ("getMovingRight" and "getMovingLeft") and then check if these
+	                    //are either true or false, to see what direction the enemy is moving.
+	                    //If the object colliding with a tile is an enemy then this if statement is run.
+	                    if(obj instanceof Enemy){
+	                    	//if enemy is moving left when he collides with a tile
+	                    	if(((Enemy) obj).getMovingLeft()){
+	                    		//turn and walk right
+	                    		((Enemy) obj).moveRight(25);
+	                    	} else {
+	                    		//if he is NOT moving left (but instead, moving right) turn and walk left
+	                    		((Enemy) obj).moveLeft(25);
+	                    	}
+	                    }
 	                }
-	 
 	            }
 	            //same thing for the vertical, or y movement
 	            if(y_movement != 0){

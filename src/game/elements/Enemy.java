@@ -16,8 +16,10 @@ import Level.LevelObject;
 public class Enemy extends Element {
 	
 	public Enemy(float x, float y) throws SlickException{
-    	super(x,y);
+    	//Constructor
+		super(x,y);
     	
+		//
     	setMovingAnimation(new Image[]{new Image("images/goombaWalk1.png"),new Image("images/goombaStand1.png"),
     	new Image("images/goombaWalk2.png")}
     	,175);
