@@ -85,11 +85,12 @@ public class LevelState extends BasicGameState {
 		
 		
 	}
-	public void KeyPressed ( int key, char code){
-		if (key == Input.KEY_ESCAPE){
-			System.exit(0);
-		}
-	}
+	//public void KeyPressed ( int key, char code){
+	//	if (key == '1'){
+	//		System.exit(1);
+	//		System.out.println("hey");
+	//	}
+	//}
 	public int getID(){
         //this is the id for changing states
         return 0;

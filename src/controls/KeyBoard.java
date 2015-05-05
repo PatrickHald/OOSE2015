@@ -29,6 +29,9 @@ public class KeyBoard extends PlayerControl {
 	        if(i.isKeyDown(Input.KEY_SPACE)){
 	            player.jump();
 	        }
+	        if(i.isKeyDown(Input.KEY_ESCAPE)) {
+	        	System.exit(0);
+	        }
 	    }
 
 	}
