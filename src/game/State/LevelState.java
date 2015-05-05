@@ -27,6 +27,7 @@ import org.newdawn.slick.state.StateBasedGame;
 
 public class LevelState extends BasicGameState {
 	private Enemy enemy;
+	private Enemy enemy2;
 	private Level level;
 	private String firstLevel;
 	public Image background;
@@ -50,7 +51,12 @@ public class LevelState extends BasicGameState {
 		//level.addLevelObject(new Objective(128,315));
         
 		System.out.println("1");
-        level = new Level (firstLevel,player,enemy, objective);
+       
+		enemy = new Enemy (250,200);
+		
+		enemy2 = new Enemy (500,200);
+		 level = new Level (firstLevel,player,enemy,enemy2, objective);
+
 		//link to PlayerControl class
 		playerControl = new KeyBoard(player);
 		System.out.println("2");

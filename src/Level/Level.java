@@ -28,9 +28,10 @@ public class Level {
 	   private Objective objective;
 	   //for our objects
 	 //  private ArrayList<LevelObject> levelObjects;
+	   //private Enemy enemy2;
 	   
 	    private Tile[][] tiles;
-	    public Level(String level, Player player, Enemy enemy, Objective objective) throws SlickException{
+	    public Level(String level, Player player, Enemy enemy,Enemy enemy2, Objective objective) throws SlickException{
 	        map = new TiledMap("data/levels/" + level + ".tmx","data/levels");
 	       // characters = new ArrayList<Character>();
 	        elements = new ArrayList<Element>();
@@ -39,6 +40,8 @@ public class Level {
 	        addElement(player);
 	        this.enemy = enemy;
 	        addElement(enemy);
+	        this.enemy = enemy2;
+	        addElement(enemy2);
 	        this.objective=objective;
 	        addElement(objective);
 	    
