@@ -34,6 +34,7 @@ public class Enemy extends Element {
     public void updateBoundingShape(){
         boundingShape.updatePosition(x+3,y);
         
+  	
     }
   
 }

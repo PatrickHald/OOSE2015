@@ -102,13 +102,16 @@ public abstract class Element extends LevelObject {
         facing = Facing.RIGHT;
     }
     
-    public void render(){
-   	 	//draw a moving animation if element has moved within the last 150 milliseconds
-    	if(movingAnimations != null && moving){
-    		movingAnimations.get(facing).draw(x-2,y-2);
-    	}else{
-    		sprites.get(facing).draw(x-2, y-2);
-    	}
+    public void render(float offset_x, float offset_y ){
+        
+        //draw a moving animation if we have one and we moved within the last 150 milliseconds
+        if(movingAnimations != null && moving){
+
+            movingAnimations.get(facing).draw(x-2-offset_x,y-2-offset_y);
+        }else{
+            sprites.get(facing).draw(x-2-offset_x, y-2-offset_y);
+
+        }
     }
 
 }
