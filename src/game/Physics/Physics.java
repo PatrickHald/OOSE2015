@@ -9,6 +9,8 @@ import Level.object.Objective;
 
 import java.util.ArrayList;
 
+import org.newdawn.slick.Image;
+
 public class Physics {
 	private final float gravity = 0.0015f;
 	
@@ -47,11 +49,18 @@ public class Physics {
 	        //now apply gravitational force if we are not on the ground or when we are about to jump
 	        if(!obj.isOnGround() || obj.getYVelocity() < 0){
 	            obj.applyGravity(gravity*delta);
-	            // --- Make register jump-sprite
+	            // --- Register jump-sprite
+	            //if(obj instanceof Player){
+	            //	if(((Player) obj).getJumping()){
+	            //		((Player) obj).setMovingAnimation(new Image[]{new Image("images/marioJump1.png")},125);
+	            //	}
+	            //}
 	        }
 	        else
 	            obj.setYVelocity(0);
-	 
+	        
+	        //setMovingAnimation(new Image[]{new Image("images/goombaWalk1.png")},175);
+	        
 	        //calculate how much we actually have to move
 	        float x_movement = obj.getXVelocity()*delta;
 	        float y_movement   = obj.getYVelocity()*delta;
