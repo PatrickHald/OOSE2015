@@ -10,7 +10,6 @@ import game.elements.Element;
 import game.elements.Enemy;
 import controls.PlayerControl;
 import controls.KeyBoard;
-import controls.EnemyControl;
 import game.elements.Player;
 import Level.*;
 
