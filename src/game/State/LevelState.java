@@ -79,7 +79,7 @@ public class LevelState extends BasicGameState {
 	public void render (GameContainer container, StateBasedGame sbg, Graphics g) throws SlickException{
 		g.scale(SimpleSlickGame.SCALE, SimpleSlickGame.SCALE);
 
-	    //for the sky
+	    //for the sky 
 		Image background = new Image ("data/levels/Oose_Mario_game_sky.png");
 		  g.drawImage (background, 0, 0, null);
 		  
