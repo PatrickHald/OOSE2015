@@ -1,18 +1,17 @@
 package controls;
 
-import game.Physics.Physics;
+
 import game.elements.Player;
 
 import org.newdawn.slick.Input;
 
 public class KeyBoard extends PlayerControl {
-	private Physics physics ;
-	 
+
 	public KeyBoard(Player player) {
 		
 	    //Constructor
 		super(player);
-		physics = new Physics();
+		
 	}
 	
 	public void handleInput(Input i, int delta) {

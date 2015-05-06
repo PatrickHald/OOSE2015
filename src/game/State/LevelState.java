@@ -87,12 +87,17 @@ public class LevelState extends BasicGameState {
 		
 		//Upon colliding with enemy, game over image is spawned.
 		if(physics.hasEnemyCollision()) {
-			  Image gameOver = new Image ("images/gameOverScreen.png");
+			  Image gameOver = new   Image ("images/gameOverScreen.png");
 			  g.drawImage (gameOver, SimpleSlickGame.WINDOW_WIDTH/4, SimpleSlickGame.WINDOW_HEIGTH/3, null);
 			  
 			 
 		}
-		
+		if(physics.hasObjectiveCollision()) {
+			  Image win = new Image ("images/winScreen.png");
+			  g.drawImage (win, SimpleSlickGame.WINDOW_WIDTH/4, SimpleSlickGame.WINDOW_HEIGTH/3, null);
+			  
+			 
+		}
 	}
 	//public void KeyPressed ( int key, char code){
 	//	if (key == '1'){

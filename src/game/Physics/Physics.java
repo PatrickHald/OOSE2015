@@ -14,6 +14,7 @@ import java.util.ArrayList;
 public class Physics {
 	//A boolean created to switch to true if a collision between the player and an enemy occurs.
 	private boolean gameOverCollision = false;
+	private boolean winCollision = false;
 	
 	private final float gravity = 0.0015f;
 	
@@ -40,6 +41,7 @@ public class Physics {
     				if(isColliding(e,o)) {
     					System.out.println("colliding with box");
     					// --- Win game / Gain health
+    					winCollision = true;
     				}
     		}
     		handleGameObject(e,level,delta);
@@ -50,7 +52,9 @@ public class Physics {
     public boolean hasEnemyCollision() {
     	return gameOverCollision;
     }
-	    
+    public boolean hasObjectiveCollision() {
+    	return winCollision;
+    }
 	private void handleGameObject(LevelObject obj, Level level, int delta){
 	    //first update the onGround of the object
 	    obj.setOnGround(isOnGroud(obj,level.getTiles()));
