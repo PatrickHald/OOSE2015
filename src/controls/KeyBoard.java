@@ -1,14 +1,18 @@
 package controls;
 
+import game.Physics.Physics;
 import game.elements.Player;
 
 import org.newdawn.slick.Input;
 
 public class KeyBoard extends PlayerControl {
+	private Physics physics ;
 	 
 	public KeyBoard(Player player) {
+		
 	    //Constructor
 		super(player);
+		physics = new Physics();
 	}
 	
 	public void handleInput(Input i, int delta) {
@@ -31,10 +35,12 @@ public class KeyBoard extends PlayerControl {
 	        //we dont move if we don't press left or right, this will have the effect that our player decelerates
 	        player.setMoving(false);
 	    }
+	   
 	    //The space bar can be used to jump by checking for the isKeyDown-input of the mentioned button, and then 
 	    //calling the "jump"-function for the game element "player".
 	    if(i.isKeyDown(Input.KEY_SPACE)){
 	        player.jump();
+	        
 	    }
 	    //The ESC-key can be used to shut down the game at any given point in time.
 	    if(i.isKeyDown(Input.KEY_ESCAPE)) {

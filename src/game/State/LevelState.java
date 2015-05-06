@@ -50,10 +50,8 @@ public class LevelState extends BasicGameState {
 		//enemy = new Enemy (200,200);
 		
 		//make boxes
-		objective = new Objective (900,150);
+		objective = new Objective (2850,150);
 		//level.addLevelObject(new Objective(128,315));
-        
-		System.out.println("1");
        
 		enemy = new Enemy (600,175);
 		enemy2 = new Enemy (1400,300);
@@ -65,7 +63,6 @@ public class LevelState extends BasicGameState {
 		
 		//link to PlayerControl class
 		playerControl = new KeyBoard(player);
-		System.out.println("2");
 		physics = new Physics();
 	}
 
@@ -93,6 +90,7 @@ public class LevelState extends BasicGameState {
 			  Image gameOver = new Image ("images/gameOverScreen.png");
 			  g.drawImage (gameOver, SimpleSlickGame.WINDOW_WIDTH/4, SimpleSlickGame.WINDOW_HEIGTH/3, null);
 			  
+			 
 		}
 		
 	}

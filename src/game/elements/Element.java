@@ -136,6 +136,7 @@ public abstract class Element extends LevelObject {
                 x_velocity = -maximumSpeed;
             }
         }
+      //  if()
         moving = true;
         facing = Facing.LEFT;
         movingLeft = true;
