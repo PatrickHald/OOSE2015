@@ -12,6 +12,9 @@ import java.util.ArrayList;
 //import org.newdawn.slick.Image;
 
 public class Physics {
+	//A boolean created to switch to true if a collision between the player and an enemy occurs.
+	private boolean gameOverCollision = false;
+	
 	private final float gravity = 0.0015f;
 	
     public void handlePhysics(Level level, int delta){
@@ -29,7 +32,7 @@ public class Physics {
     				if(isColliding(e,g)) {
     					System.out.println("colliding with enemy");
     					// --- Game over / Lose health
-    					
+    					gameOverCollision = true;
     				}
     		}
     		for(Element o: level.getElements()) {
@@ -41,6 +44,11 @@ public class Physics {
     		}
     		handleGameObject(e,level,delta);
     	}
+    }
+    
+    //Boolean-function returns gameOverCollision boolean to LevelState class.
+    public boolean hasEnemyCollision() {
+    	return gameOverCollision;
     }
 	    
 	private void handleGameObject(LevelObject obj, Level level, int delta){
