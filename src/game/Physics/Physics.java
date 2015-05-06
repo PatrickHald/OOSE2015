@@ -28,7 +28,7 @@ public class Physics {
     			if(e instanceof Player && g instanceof Enemy)
     				if(isColliding(e,g)) {
     					System.out.println("colliding with enemy");
-    					// --- Lose health
+    					// --- Lose health / Game Over
     					
     				}
     		}

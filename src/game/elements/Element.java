@@ -88,9 +88,10 @@ public abstract class Element extends LevelObject {
     	return jumping;
     }
     
+    //Sets the velocity which the player will be given when jumping - a higher NEGATIVE value will grant a higher jump
     public void jump(){
         if(onGround)
-            y_velocity = -0.6f;
+            y_velocity = -0.45f;
     }
     
     //These booleans are only used for the get functions below, and set to private so they cannot be 
