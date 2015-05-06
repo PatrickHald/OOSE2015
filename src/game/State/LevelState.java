@@ -57,8 +57,8 @@ public class LevelState extends BasicGameState {
 		System.out.println("1");
        
 		enemy = new Enemy (600,175);
-		enemy2 = new Enemy (875,300);
-		enemy3 = new Enemy (1000,120);
+		enemy2 = new Enemy (1400,300);
+		enemy3 = new Enemy (900,120);
 		enemy4 = new Enemy (2200,100);
 		enemy5 =new Enemy (2850,100);
 		
