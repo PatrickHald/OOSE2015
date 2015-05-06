@@ -37,21 +37,16 @@ public class LevelState extends BasicGameState {
 	private PlayerControl playerControl;
 	private Physics physics ;
 	private Objective objective;
-	//public int health = 0;
-	
+		
 	public LevelState ( String firstLevel){
 		this.firstLevel = firstLevel;
 			}
 	
 	public void init(GameContainer container, StateBasedGame sbg)throws SlickException {		
 		player = new Player(170,275);
-		//level.addElement(player);
-		
-		//enemy = new Enemy (200,200);
-		
+				
 		//make boxes
 		objective = new Objective (2850,150);
-		//level.addLevelObject(new Objective(128,315));
        
 		enemy = new Enemy (600,175);
 		enemy2 = new Enemy (1400,300);
@@ -74,37 +69,25 @@ public class LevelState extends BasicGameState {
 	
 	public void render (GameContainer container, StateBasedGame sbg, Graphics g) throws SlickException{
 		g.scale(SimpleSlickGame.SCALE, SimpleSlickGame.SCALE);
-
-	    //for the sky
+		
+	    //image of the sky and clouds are put in behind the rest of what is on the game window
 		Image background = new Image ("data/levels/Oose_Mario_game_sky.png");
 		  g.drawImage (background, 0, 0, null);
 		  
-		  
+		//puts the tiles into the game window
 		level.render();	
-		//the life string in upper left corner
-		//g.drawString("Life: "+ health ,12,35);
-		//enemy.moveRight();
 		
 		//Upon colliding with enemy, game over image is spawned.
 		if(physics.hasEnemyCollision()) {
 			  Image gameOver = new   Image ("images/gameOverScreen.png");
 			  g.drawImage (gameOver, SimpleSlickGame.WINDOW_WIDTH/4, SimpleSlickGame.WINDOW_HEIGTH/3, null);
-			  
-			 
-		}
+			  }
+		//upon colliding with objective, WIN image is spawned.
 		if(physics.hasObjectiveCollision()) {
 			  Image win = new Image ("images/winScreen.png");
-			  g.drawImage (win, SimpleSlickGame.WINDOW_WIDTH/4, SimpleSlickGame.WINDOW_HEIGTH/3, null);
-			  
-			 
+			  g.drawImage (win, SimpleSlickGame.WINDOW_WIDTH/4, SimpleSlickGame.WINDOW_HEIGTH/3, null);	 
 		}
 	}
-	//public void KeyPressed ( int key, char code){
-	//	if (key == '1'){
-	//		System.exit(1);
-	//		System.out.println("hey");
-	//	}
-	//}
 	public int getID(){
         //this is the id for changing states
         return 0;

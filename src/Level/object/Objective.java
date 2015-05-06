@@ -15,7 +15,7 @@ protected Animation animation;
 
 	public Objective(float x, float y) throws SlickException {
 		super(x, y);
-		 setSprite(new Image("images/mario_qb2.png"));
+		 setSprite(new Image("images/marioStar.png"));
 		
 		
 	}
