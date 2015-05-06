@@ -8,11 +8,9 @@ public abstract class LevelObject {
     protected float x;
     protected float y;
     protected BoundingShape boundingShape;
-    
     protected float    x_velocity = 0;
     protected float    y_velocity = 0;
     protected float    maximumFallSpeed = 1;
-
     protected boolean  onGround = true;
     
     public LevelObject(float x, float y){
@@ -24,7 +22,7 @@ public abstract class LevelObject {
     }
     
     public void applyGravity(float gravity){
-      //if we aren't already moving at maximum speed
+    	//if we aren't already moving at maximum speed
         if(y_velocity < maximumFallSpeed){
             //accelerate
             y_velocity += gravity;

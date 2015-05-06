@@ -62,7 +62,7 @@ public class LevelState extends BasicGameState {
 		enemy5 =new Enemy (2850,100);
 		
 		level = new Level (firstLevel,player,enemy,enemy2,enemy3,enemy4,enemy5, objective);
-
+		
 		//link to PlayerControl class
 		playerControl = new KeyBoard(player);
 		System.out.println("2");
@@ -78,7 +78,7 @@ public class LevelState extends BasicGameState {
 	public void render (GameContainer container, StateBasedGame sbg, Graphics g) throws SlickException{
 		g.scale(SimpleSlickGame.SCALE, SimpleSlickGame.SCALE);
 
-	    //for the sky 
+	    //for the sky
 		Image background = new Image ("data/levels/Oose_Mario_game_sky.png");
 		  g.drawImage (background, 0, 0, null);
 		  

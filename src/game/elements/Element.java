@@ -30,8 +30,10 @@ public abstract class Element extends LevelObject {
 		LEFT, RIGHT
 	}
 	
-	//Function that takes an array of images and the duration which each image is displayed and cycles
-	//through the given images.
+	/**
+	 * Function that takes an array of images and the duration which each image is displayed and cycles
+	 * through the given images.
+	 */
     protected void setMovingAnimation(Image[] images, int frameDuration){
         //The HashMap takes a facing-direction and an animation image and becomes the movingAnimation
     	movingAnimations = new HashMap<Facing,Animation>();

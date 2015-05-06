@@ -17,7 +17,7 @@ public abstract class BoundingShape {
 	    public abstract void updatePosition(float newX, float newY);
 	 
 	    public abstract void movePosition(float x, float y);
-	 
+	    
 	    public abstract ArrayList<Tile> getTilesOccupying(Tile[][] tiles);
 	 
 	    public abstract ArrayList<Tile> getGroundTiles(Tile[][] tiles);
