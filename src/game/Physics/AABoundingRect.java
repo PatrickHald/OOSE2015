@@ -41,7 +41,6 @@ public  class AABoundingRect extends BoundingShape{
 			}
 		}
 		return occupiedTiles;
-	    
 	}
 	    
 	public ArrayList<Tile> getGroundTiles(Tile[][] tiles) {
