@@ -6,20 +6,15 @@ package Level;
 
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.tiled.TiledMap;
-
 import game.elements.Element;
 import game.elements.Enemy;
-
 import java.util.ArrayList;
-
 import Level.Tile.AirTile;
 import Level.Tile.SolidTile;
 import Level.Tile.Tile;
 import Level.object.Objective;
 import game.SimpleSlickGame;
 import game.elements.Player;
-//import game.State.LevelState;
-//import game.level.object.Objective;
 
 public class Level {
 	private TiledMap map;
@@ -112,7 +107,7 @@ public class Level {
 	        offset_x = 1;
 	    }else if(player.getX() > maxX){
 	        //the player is between the maximum point of scrolling and the maximum width of the map
-	        //the reason why we substract half the screen again is because we need to set our offset to the topleft position of our screen
+	        //the reason why we subtract half the screen again is because we need to set our offset to the topleft position of our screen
 	        offset_x = maxX-half_width;
 	    }else{
 	        //the player is in between the 2 spots, so we set the offset to the player, minus the half-width of the screen

@@ -3,6 +3,7 @@
  * gravity are given a value, step movements are calculated, and bounding are made and put on the ground tiles, but not the air tiles. boundingShapes makes the enemies turn around if they walk into a tile.
  */
 package game.Physics;
+
 import game.elements.Element;
 import game.elements.Enemy;
 import game.elements.Player;
@@ -10,7 +11,6 @@ import Level.Level;
 import Level.LevelObject;
 import Level.Tile.Tile;
 import Level.object.Objective;
-
 import java.util.ArrayList;
 
 public class Physics {
@@ -64,12 +64,6 @@ public class Physics {
 	    //now apply gravitational force if we are not on the ground or when we are about to jump
 	    if(!obj.isOnGround() || obj.getYVelocity() < 0){
 	        obj.applyGravity(gravity*delta);
-	        // --- Register jump-sprite
-	        //if(obj instanceof Player){
-	        //	if(((Player) obj).getJumping()){
-	        //		((Player) obj).setMovingAnimation(new Image[]{new Image("images/marioJump1.png")},125);
-	        //	}
-	        //}
 	    }
 	    else
 	        obj.setYVelocity(0);

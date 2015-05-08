@@ -1,8 +1,6 @@
 package controls;
 
-
 import game.elements.Player;
-
 import org.newdawn.slick.Input;
 
 public class KeyBoard extends PlayerControl {
@@ -47,5 +45,3 @@ public class KeyBoard extends PlayerControl {
 	    }
 	}
 }
-
-

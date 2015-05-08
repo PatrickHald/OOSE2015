@@ -7,9 +7,7 @@
 package game.elements;
 
 import java.util.HashMap;
-
 import Level.LevelObject;
-
 import org.newdawn.slick.Animation;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
@@ -59,7 +57,6 @@ public abstract class Element extends LevelObject {
         
     }
     
-    //
     //The "getFlippedCopy" provides a horizontally (true) and vertically (false) flipped image of the original
     protected void setSprite(Image i){
         sprites = new HashMap<Facing,Image>();
@@ -77,7 +74,6 @@ public abstract class Element extends LevelObject {
     
     //Whenever the player stops moving (right or left) the movement speed will briefly decay, rather than stopping
     //instantly. 
-    // --- move towards x_velocity = 0
     public void decelerate(int delta) {
         if(x_velocity > 0){
             x_velocity -= decelerationSpeed * delta;
@@ -165,9 +161,6 @@ public abstract class Element extends LevelObject {
         movingLeft = false;
     }
     
-    /**
-     * ---
-     */
     public void render(float offset_x, float offset_y ){
         
         //Draw a moving animation if we have one and we moved within the last 150 milliseconds
@@ -182,5 +175,4 @@ public abstract class Element extends LevelObject {
 
         }
     }
-
 }
