@@ -1,3 +1,7 @@
+/**Here i LevelState we are drawing all of the objects on the screen; the background, the ground the objects are on,
+ * and the objects meaning the star, player and the enemies. And it is here the Win or Game Over images are spawned if true.
+ * 
+ */
 package game.State;
 import java.awt.Color;
 
@@ -48,12 +52,14 @@ public class LevelState extends BasicGameState {
 		//make boxes
 		objective = new Objective (2850,150);
        
+		//Makes enemies
 		enemy = new Enemy (600,175);
 		enemy2 = new Enemy (1400,300);
 		enemy3 = new Enemy (900,120);
 		enemy4 = new Enemy (2200,100);
 		enemy5 =new Enemy (2850,100);
 		
+		// makes the level and put the objects into the parameter
 		level = new Level (firstLevel,player,enemy,enemy2,enemy3,enemy4,enemy5, objective);
 		
 		//link to PlayerControl class

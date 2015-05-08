@@ -1,3 +1,6 @@
+/**
+ * set image in on objective and overrides gravity so objective can stay up in the air.
+ */
 package Level.object;
 
 import game.elements.Element;
@@ -15,17 +18,11 @@ protected Animation animation;
 
 	public Objective(float x, float y) throws SlickException {
 		super(x, y);
-		 setSprite(new Image("images/marioStar.png"));
-		
-		
+		//chooses which image to set as our objective.
+		 setSprite(new Image("images/marioStar.png"));	
 	}
- //public void render (float offset_x,float offset_y){
-//			animation.draw(x-2-offset_x,y-2-offset_y);
-//		}
-	
-	
 	@Override
-	
+	// here we remove its gravity so it will stay up in the air.
 	public void applyGravity(float gravity){
 	      //if we aren't already moving at maximum speed
 	        

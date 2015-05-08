@@ -1,3 +1,7 @@
+/**
+ * in this class we put our object into the level parameters, and put the tiles -which is what we use as ground, into the map.
+ * in the offsets we calculate where the player is on the screen and makes him the center of the screen. this i calculated for both the X and Y axis
+ */
 package Level;
 
 import org.newdawn.slick.SlickException;
@@ -25,14 +29,11 @@ public class Level {
 	private Player player;
 	private Enemy enemy;
 	private Objective objective;
-	//for our objects
-	//private ArrayList<LevelObject> levelObjects;
-	//private Enemy enemy2;
-	
 	private Tile[][] tiles;
+	
 	public Level(String level, Player player, Enemy enemy,Enemy enemy2,Enemy enemy3,Enemy enemy4,Enemy enemy5, Objective objective) throws SlickException{
 		map = new TiledMap("data/levels/" + level + ".tmx","data/levels");
-	    // characters = new ArrayList<Character>();
+	    
 	    elements = new ArrayList<Element>();
 	    
 	    this.player=player;
@@ -91,32 +92,18 @@ public class Level {
 	public ArrayList<Element> getElements(){
 	    return elements;
 	}
-	/*public void addLevelObject(LevelObject obj){
-	    levelObjects.add(obj);
-	}
-	    
-	public ArrayList<LevelObject> getLevelObjects(){
-	    return levelObjects;
-	}*/
-	    
+   
 	public Tile[][] getTiles(){
 	    return tiles;
 	}
-	//used for the object to remove it after 
-	/*public void removeObject(LevelObject obj){
-	    levelObjects.remove(obj);
-	}
 	
-	public void removeObjects(ArrayList<LevelObject> objects) {
-	    levelObjects.removeAll(objects);
-	}*/
 	public int getXOffset(){
 	    int offset_x = 1;
 	    
 	    //the first thing we are going to need is the half-width of the screen, to calculate if the player is in the middle of our screen
 	    int half_width = (int) (SimpleSlickGame.WINDOW_WIDTH/SimpleSlickGame.SCALE/2);
 	    
-	    //next up is the maximum offset, this is the most right side of the map, minus half of the screen offcourse
+	    //next up is the maximum offset, this is the most right side of the map, minus half of the screen off course
 	    int maxX = (int) (map.getWidth()*32)-half_width;
 	    
 	    //now we have 3 cases here
@@ -134,7 +121,7 @@ public class Level {
 	    
 	    return offset_x;
 	}
-	
+	// the same as above just for the Y axis 
 	public int getYOffset(){
 		int offset_y = 0;
 		
@@ -158,23 +145,10 @@ public class Level {
 		
 		//render the map first
 		map.render(-(offset_x%32), -(offset_y%32), offset_x/32, offset_y/32, 33, 19);
-		       
-		//render box on top of map
-		/*for(LevelObject obj : levelObjects){
-		     obj.render(offset_x, offset_y);
-		}*/
 		
 		//and then render the characters on top of the map
 		for(Element e : elements){
 			e.render(offset_x,offset_y);
 		}
 	}
-   	/*public void render(){
-		//chronological rendering of map, elements, etc.
-	   	map.render(0, 0, 0, 0, 32, 18);
-	   	
-		for(Element e: elements){
-			e.render();
-	    }
-	}*/
-}
+	}

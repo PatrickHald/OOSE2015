@@ -1,5 +1,8 @@
+/**Defines x,y, bounding shape and Sets values for x_velocity, y_velocity and maximum fall speed and sets the on ground boolean to be true,  
+ * gravity are made 
+ *
+ */
 package Level;
-
 import game.Physics.AABoundingRect;
 import game.Physics.BoundingShape;
 

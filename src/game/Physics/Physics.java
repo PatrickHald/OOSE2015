@@ -1,3 +1,7 @@
+/**Win and game over collision are sat as false. handle element chechs if the player is colliding with the enemy as well as the objective, 
+ * if that happens then depending on which of the two the player collided with either the  gameOverCollision or the winCollision are sat to true, 
+ * gravity are given a value, step movements are calculated, and bounding are made and put on the ground tiles, but not the air tiles. boundingShapes makes the enemies turn around if they walk into a tile.
+ */
 package game.Physics;
 import game.elements.Element;
 import game.elements.Enemy;
@@ -8,8 +12,6 @@ import Level.Tile.Tile;
 import Level.object.Objective;
 
 import java.util.ArrayList;
-
-//import org.newdawn.slick.Image;
 
 public class Physics {
 	//A boolean created to switch to true if a collision between the player and an enemy occurs.

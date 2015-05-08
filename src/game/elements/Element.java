@@ -1,3 +1,9 @@
+/**Here in Element SetMoving animation sets the duration  of how long of each image in a array of images are displayed.
+ * Images are also flipped if the objects direction changes. Here are a acceleration function which does so when the player moves it gets a smooth transition from standing still to moving.
+ * There are also a deceleration function which gives a smooth transition form moving to the player stands still.
+ * Here are a jump function which lifts the player at the y-axis 
+ * The offsets function does so the game window will keep the player at the center of the screen.
+ */
 package game.elements;
 
 import java.util.HashMap;
