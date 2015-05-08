@@ -1,10 +1,20 @@
 package Level.Tile;
-import org.newdawn.slick.tiled.TiledMap;
+
+
+import game.Physics.BoundingShape;
+
+
 public class Tile {
-	  	protected int x;
+		protected BoundingShape boundingShape = null;
+		protected int x;
 	    protected int y;
+	   
+	   
+	    public BoundingShape getBoundingShape(){
+	    	return boundingShape;
+	    }
 	 
-	    public Tile(int x, int y) {
+	    public Tile(int x,int y) {
 	        this.x = x;
 	        this.y = y;
 	    }
@@ -16,5 +26,5 @@ public class Tile {
 	    public int getY(){
 	        return y;
 	    }
-	 
+	
 }

@@ -1,3 +1,6 @@
+/**
+ * has our main. sets the window width, height, frames per sek sets the game name, level and starts the app
+ */
 package game;
 
 import game.State.LevelState;

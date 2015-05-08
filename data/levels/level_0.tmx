@@ -1,16 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="32" nextobjectid="9">
+ <properties>
+  <property name="background" value="Oose_Mario_game_sky.png"/>
+ </properties>
  <tileset firstgid="1" name="grassy_tileset" tilewidth="32" tileheight="32">
   <image source="grassy_tileset.png" width="640" height="1280"/>
   <tile id="0">
    <properties>
-    <property name="tileType" value="air"/>
+    <property name="TileType" value="air"/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="TileType" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="TileType" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="TileType" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="6">
+   <properties>
+    <property name="TileType" value="Solid"/>
+   </properties>
+  </tile>
+  <tile id="20">
+   <properties>
+    <property name="TileType" value="air"/>
+    <property name="tilVal" value="Bounce"/>
    </properties>
   </tile>
  </tileset>
  <layer name="CollisionLayer" width="100" height="100">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+3UuwqFMBBF0fHR3v//XQsRJGLjjfEUq1hdGMZs4lJVS2MKkbbPyG/WI4MeWd7qUXpE9ei529d76KGHHhlG9ZhvtOdKD+8jyNMevxd2ad+OHru7f8m5wzpoFz2uXZ445v8zQ49+es7/+o700EOPDHpk0SOLHln0yKJHFj0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAwwaBvwiiQJwAAA==
+   H4sIAAAAAAAAC+3YwW7CMBAA0QA9VK165P9/tYeqEkKOs44d7yiZw9zAOH6xCTyWZXm8dbPpvRvQPe6AOWSZZM+rZPFf5PU/gDmf1eO+s+x5n9HjXpnjVgST1n1K9ihZ9I4326j182Z6rN0rM876rDOtdS1nemSd97Uzr+dzI/fR2lquvZd4Xu1dozXnyPfMUc8MtfFHexxxzuy99p7v/Z4iHi17c+ueeVYcPoJWEbfIvVyayzPRotWj9/pH7eWeMSJlWbR4EPZ2ZM/O6OvAIh57z7MzenwG1iyjjLXQI99AD6aFHvnXXrLInlerR2mM751jZj/7lRyyTSJrd5RxtsWWCdHjKGPC3qh5ZM3lCI/XiL9RIybZ87l6evDSgpUerPRgpQcrPVjpwUoPTv72YKUHKz1Y6cHJ/65Y6cFKD1Z6sNKDlR6s9GClBys9WOnBSg9WerDSg5UerPRgpQcrPVjpwUoPVnqw0oOVHqz0YKUHp3cLPfLTg5P7g5cerPRgpQcrPVjpwUoPTj7vstKDVclDE55J9pyunB6stGClBys9WOnBSg9WerDSg5UerPRgpQcrPRj53y6rNQ9N9Lh6NQs9WBaa6HHVohaaMD00GbfuIyw0GWMx2uMWGN/qaz7SQo8+i9c1G2GhR7/F6PRgOKztt+xrJzbbo7RfjOGhCctCk79+AQfBTWtAnAAA
   </data>
  </layer>
 </map>
